@@ -27,7 +27,7 @@ tree-sitter test
 ```
 
 ## Nvim highlighting
-move queries/highlights.scm to $HOME/.config/nvim/queries/vivi/highlights.scm
+move `queries/highlights.scm` to `$HOME/.config/nvim/queries/vivi/highlights.scm`
 
 nvim config
 ```lua
