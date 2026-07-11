@@ -10,7 +10,8 @@
         "vivi"
       ],
       "injection-regex": "^vivi$",
-      "class-name": "TreeSitterVivi"
+      "class-name": "TreeSitterVivi",
+      "highlights": "queries/highlights.scm"
     }
   ],
   "metadata": {
