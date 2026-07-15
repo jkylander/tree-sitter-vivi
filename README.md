@@ -1,30 +1,11 @@
 # tree-sitter-vivi
 
-
 A **[Vivi](https://github.com/maidnaut/Vivi/blob/main/docs/spec.txt) grammar** for the
 **[tree-sitter](https://github.com/tree-sitter/tree-sitter) parsing library**.
 
-</div>
+## Screenshot
 
-## Local setup
-
-Install `tree-sitter-cli`:
-
-```bash
-cargo install tree-sitter-cli
-```
-
-To generate bindings:
-
-```bash
-tree-sitter generate
-```
-
-To run tests:
-
-```bash
-tree-sitter test
-```
+![Highlights](screenshots/vivi.png)
 
 ## Nvim highlighting
 move `queries/highlights.scm` to `$HOME/.config/nvim/queries/vivi/highlights.scm`
@@ -46,3 +27,24 @@ vim.filetype.add({
   }
 })
 ```
+
+## Local setup
+
+Install `tree-sitter-cli`:
+
+```bash
+cargo install tree-sitter-cli
+```
+
+To generate bindings:
+
+```bash
+tree-sitter generate
+```
+
+To run tests:
+
+```bash
+tree-sitter test
+```
+
