@@ -12,19 +12,33 @@ move `queries/highlights.scm` to `$HOME/.config/nvim/queries/vivi/highlights.scm
 
 nvim config
 ```lua
-local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
-parser_config.vivi = {
-  install_info = {
-    url = "https://github.com/jkylander/tree-sitter-vivi",
-    files = {"src/parser.c"},
-    branch = "main",
-  },
-  filetype = "vivi"
-}
+vim.api.nvim_create_autocmd('User', { pattern = 'TSUpdate',
+callback = function()
+  require('nvim-treesitter.parsers').vivi = {
+    install_info = {
+      url = 'https://github.com/jkylander/tree-sitter-vivi',
+      --revision = HEAD, -- commit hash for revision to check out; HEAD if missing
+      -- optional entries:
+      --branch = 'develop', -- only needed if different from default branch
+      --location = 'src', -- only needed if the parser is in subdirectory of a "monorepo"
+      generate = false, -- only needed if repo does not contain pre-generated `src/parser.c`
+      generate_from_json = false, -- only needed if repo does not contain `src/grammar.json` either
+      queries = 'queries', -- also install queries from given directory
+    },
+  }
+end})
+
 vim.filetype.add({
   extension = {
     vivi = 'vivi',
   }
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'vivi',
+  callback = function(args)
+    vim.treesitter.start(args.buf, 'vivi')
+  end,
 })
 ```
 
